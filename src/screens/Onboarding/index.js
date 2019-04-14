@@ -5,57 +5,80 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import * as reduxActions from '../../redux/actions'
+import type { UserStateType, OnboardingOptionType } from '../../types'
+import { screenSize } from '../../utils/device'
+import { onboardingScreenQuestions } from './constants'
 
 import Onboarding from './Onboarding'
 
 type Props = {
-
+	userState: UserStateType
 }
 
 type State = {
-
+	currentPageIndex: number
 }
 
 class OnboardingScreen extends Component < Props, State > {
 
-    // STATIC PUBLIC PROPS
-    static screenName = 'ONBOARDING_SCREEN'
+	// STATIC PUBLIC PROPS
+	static screenName = 'ONBOARDING_SCREEN'
 
-    // NAVIGATOR STYLE
+	// NAVIGATOR STYLE
 
-    // REACT COMPONENT PROPS AND METHODS
+	// REACT COMPONENT PROPS AND METHODS
 
-    // PRIVATE METHODS
+	state = {
+		currentPageIndex: 0
+	}
 
-    _onScroll = () => {
+	componentWillReceiveProps(){
 
-    }
+	}
 
-    // RENDER UI
+	// PRIVATE METHODS
 
-    render() {
-        return (
-            <Onboarding
-                onScroll={this._onScroll}
-            />
-        )
-    }
+	_onScroll = (e, state) => {
+		const offsetX = e.nativeEvent.contentOffset.x;
+    this.setState({
+      currentPageIndex: Math.floor((offsetX - screenSize.width / 2) / screenSize.width ) + 1
+    });
+	}
+
+	_onSelectOption = (option: OnboardingOptionType) => {
+		const nextPageIndex = this.state.currentPageIndex + 1
+		this.refs.scrollView.scrollTo({x: nextPageIndex * screenSize.width, y: 0, animated: true})
+	}
+
+	// RENDER UI
+
+	render() {
+		return (
+			<Onboarding
+				ref={'scrollView'}
+				currentPageIndex={this.state.currentPageIndex}
+				onboardingScreenQuestions={onboardingScreenQuestions}
+				onScroll={this._onScroll}
+				onSelectOption={this._onSelectOption}
+			/>
+		)
+	}
 
 }
 
 // SETUP REDUX STATE AND ACTIONS
 
 function mapStateToProps(state, ownProps) {
-    const { userState } = state
-    return {
-        userState
-    }
+	const { userState } = state
+	return {
+		userState
+	}
 }
 
 function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(reduxActions, dispatch)
-    }
+	return {
+		actions: bindActionCreators(reduxActions, dispatch)
+	}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(OnboardingScreen)
