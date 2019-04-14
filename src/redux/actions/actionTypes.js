@@ -1,0 +1,3 @@
+// @flow
+
+export const UPDATE_USER_PROFILE = 'UPDATE_USER_PROFILE'
