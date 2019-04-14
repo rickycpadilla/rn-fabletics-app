@@ -19,21 +19,21 @@ export const PageIndicator = (props: Props) => {
 
 	return (
 		<View style={{flexDirection: 'row'}}>
-        {
-          Array.apply(null, {length: pageCount}).map((x, i) => {
-            return (
-              <View key={i} style={[
-                styles.pageIndicator,
-                {
-                  opacity: selectedPageIndex === i ? 1 : 0.2
-                }
-              ]} />
-            )
-          })
-        }
-      </View>
+			{
+				// $FlowFixMe
+				Array.apply(null, {length: pageCount}).map((x, i) => {
+					return (
+						<View key={i} style={[
+							styles.pageIndicator,
+							{
+								opacity: selectedPageIndex === i ? 1 : 0.2
+							}
+						]} />
+					)
+				})
+			}
+		</View>
 	)
-
 }
 
 const styles = StyleSheet.create({

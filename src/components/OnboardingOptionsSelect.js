@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
 	question: {
 		fontSize: 22,
 		fontFamily: 'Helvetica',
+		fontWeight: '500',
 		textAlign: 'center',
 		color: colors.black,
 		opacity: 0.9

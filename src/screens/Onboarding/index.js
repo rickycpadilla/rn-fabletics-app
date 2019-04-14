@@ -39,15 +39,19 @@ class OnboardingScreen extends Component < Props, State > {
 	// PRIVATE METHODS
 
 	_onScroll = (e, state) => {
+		const { width } = screenSize
 		const offsetX = e.nativeEvent.contentOffset.x;
     this.setState({
-      currentPageIndex: Math.floor((offsetX - screenSize.width / 2) / screenSize.width ) + 1
+      currentPageIndex: Math.floor((offsetX - width / 2) / width ) + 1
     });
 	}
 
 	_onSelectOption = (option: OnboardingOptionType) => {
 		const nextPageIndex = this.state.currentPageIndex + 1
-		this.refs.scrollView.scrollTo({x: nextPageIndex * screenSize.width, y: 0, animated: true})
+		this.refs.scrollView.scrollTo({
+			x: nextPageIndex * screenSize.width,
+			y: 0, animated: true
+		})
 	}
 
 	// RENDER UI

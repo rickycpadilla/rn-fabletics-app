@@ -24,6 +24,7 @@ type Props = {
 	onSelectOption: (option: OnboardingOptionType) => void
 }
 
+// $FlowFixMe
 const Onboarding = React.forwardRef((props: Props, ref: any) => {
 
 	const {
@@ -64,10 +65,12 @@ const Onboarding = React.forwardRef((props: Props, ref: any) => {
 					})
 				}
 			</ScrollView>
-			<PageIndicator
-				pageCount={onboardingScreenQuestions.length}
-				selectedPageIndex={currentPageIndex}
-			/>
+			<View style={styles.pageIndicatorContainer}>
+				<PageIndicator
+					pageCount={onboardingScreenQuestions.length}
+					selectedPageIndex={currentPageIndex}
+				/>
+			</View>
 		</SafeAreaView>
 	)
 
@@ -83,8 +86,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white'
   },
   logo: {
-		// alignSelf: 'stretch',
-		width: screenSize.width - 100,
+		width: screenSize.width - 160,
 		height: 80,
 		resizeMode: 'contain'
   },
@@ -100,8 +102,6 @@ const styles = StyleSheet.create({
 		opacity: 0.7
   },
   pageIndicatorContainer: {
-		height: 40,
-	//   flex: 1,
-		backgroundColor: 'yellow'
+		height: 40
   }
 })

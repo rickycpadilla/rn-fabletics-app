@@ -15,7 +15,7 @@ Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
       component: {
-        name: 'ONBOARDING_SCREEN'
+        name: 'SPLASH_SCREEN'
       }
     }
   });
