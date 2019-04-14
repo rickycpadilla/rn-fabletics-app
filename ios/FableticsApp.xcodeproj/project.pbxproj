@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -42,6 +41,12 @@
 		DF2C2C6122629BDE006B002E /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DF2C2C5E22629BC0006B002E /* libReactNativeNavigation.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
+		64F5C62858BF4315ADE84E10 /* Assistant-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9A61FCA8FBC491A811FE27D /* Assistant-Bold.ttf */; };
+		98997132CD62441F8B893930 /* Assistant-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 035A610E84DC47DFA1E2211E /* Assistant-ExtraBold.ttf */; };
+		22348104514C477E9B7040FD /* Assistant-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E3B4E3F93574D7986A6E162 /* Assistant-ExtraLight.ttf */; };
+		F47CAD531C5749D1A84A3522 /* Assistant-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0CB5B208D29E4A4B82CF5517 /* Assistant-Light.ttf */; };
+		B0850181C5684DA894D7FF82 /* Assistant-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7579572DEDD742C398D78F4D /* Assistant-Regular.ttf */; };
+		1AC054303D564C98B0C76D42 /* Assistant-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 794254860E61415296FFA8AE /* Assistant-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -380,6 +385,12 @@
 		DF2C2C2B22629BC0006B002E /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/lib/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		A9A61FCA8FBC491A811FE27D /* Assistant-Bold.ttf */ = {isa = PBXFileReference; name = "Assistant-Bold.ttf"; path = "../assets/fonts/Assistant-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		035A610E84DC47DFA1E2211E /* Assistant-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Assistant-ExtraBold.ttf"; path = "../assets/fonts/Assistant-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5E3B4E3F93574D7986A6E162 /* Assistant-ExtraLight.ttf */ = {isa = PBXFileReference; name = "Assistant-ExtraLight.ttf"; path = "../assets/fonts/Assistant-ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0CB5B208D29E4A4B82CF5517 /* Assistant-Light.ttf */ = {isa = PBXFileReference; name = "Assistant-Light.ttf"; path = "../assets/fonts/Assistant-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7579572DEDD742C398D78F4D /* Assistant-Regular.ttf */ = {isa = PBXFileReference; name = "Assistant-Regular.ttf"; path = "../assets/fonts/Assistant-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		794254860E61415296FFA8AE /* Assistant-SemiBold.ttf */ = {isa = PBXFileReference; name = "Assistant-SemiBold.ttf"; path = "../assets/fonts/Assistant-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -623,6 +634,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				DF2C2C6F2262FC0B006B002E /* Recovered References */,
+				478E106D3D3848B9A8747D0D /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -674,6 +686,20 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		478E106D3D3848B9A8747D0D /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				A9A61FCA8FBC491A811FE27D /* Assistant-Bold.ttf */,
+				035A610E84DC47DFA1E2211E /* Assistant-ExtraBold.ttf */,
+				5E3B4E3F93574D7986A6E162 /* Assistant-ExtraLight.ttf */,
+				0CB5B208D29E4A4B82CF5517 /* Assistant-Light.ttf */,
+				7579572DEDD742C398D78F4D /* Assistant-Regular.ttf */,
+				794254860E61415296FFA8AE /* Assistant-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -1162,6 +1188,12 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				64F5C62858BF4315ADE84E10 /* Assistant-Bold.ttf in Resources */,
+				98997132CD62441F8B893930 /* Assistant-ExtraBold.ttf in Resources */,
+				22348104514C477E9B7040FD /* Assistant-ExtraLight.ttf in Resources */,
+				F47CAD531C5749D1A84A3522 /* Assistant-Light.ttf in Resources */,
+				B0850181C5684DA894D7FF82 /* Assistant-Regular.ttf in Resources */,
+				1AC054303D564C98B0C76D42 /* Assistant-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

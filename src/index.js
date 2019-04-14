@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 import configureStore from './redux'
 
 import { registerScreens } from './screens'
-import OnboardingScreen from './screens/Onboarding'
+// import OnboardingScreen from './screens/Onboarding'
 
 const store = configureStore()
 
@@ -15,7 +15,7 @@ Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
       component: {
-        name: 'SPLASH_SCREEN'
+        name: 'FEATURED_SCREEN'
       }
     }
   });

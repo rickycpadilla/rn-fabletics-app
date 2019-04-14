@@ -1,6 +1,16 @@
 // @flow
 
 export const colors = {
+  white: '#FFFFFF',
   black: '#333233',
-  red: '#E11F3E'
+  red: '#E11F3E',
+  purple: '#2A1357',
+  lightPurple: '#A38BC9'
+}
+
+export const fonts = {
+  regular: 'Assistant-Regular',
+  light: 'Assistant-Light',
+  semiBold: 'Assistant-SemiBold',
+  bold: 'Assistant-Bold'
 }
