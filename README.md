@@ -9,3 +9,6 @@ NOTE: You should have the latest version of Xcode and React Native CLI installed
 
 ### Screenshots
 ![Alt text](/screenshots/1.png?raw=true "Title")
+![Alt text](/screenshots/2.png?raw=true "Title")
+![Alt text](/screenshots/3.png?raw=true "Title")
+![Alt text](/screenshots/4.png?raw=true "Title")
