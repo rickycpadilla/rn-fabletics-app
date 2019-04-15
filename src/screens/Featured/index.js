@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import * as reduxActions from '../../redux/actions'
-import type { UserStateType, ProductPreviewType } from '../../types'
+import type { UserStateType, UserProfileType, ProductPreviewType } from '../../types'
 import { screenSize } from '../../utils/device'
 import { mockFeaturedSections } from '../../utils/mockData'
 import { colors, fonts } from '../../utils/styles'
@@ -16,6 +16,7 @@ import Featured, { initialImageHeight } from './Featured'
 
 type Props = {
   userState: UserStateType,
+  user: UserProfileType,
   componentId: string
 }
 
@@ -116,7 +117,8 @@ class FeaturedScreen extends Component < Props, State > {
       component: {
         name: 'PRODUCT_DETAIL_SCREEN',
         passProps: {
-          product: product
+          product: product,
+          user: this.props.user
         }
       }
     })

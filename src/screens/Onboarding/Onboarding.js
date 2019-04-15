@@ -12,9 +12,13 @@ import {
 } from 'react-native'
 
 import type { OnboardingScreenType, OnboardingOptionType } from '../../types'
-import { OnboardingOptionsSelect, PageIndicator } from '../../components'
+import {
+	OnboardingOptionsSelect,
+	PageIndicator,
+	OnboardingSizeSurvey
+} from '../../components'
 import { screenSize } from '../../utils/device'
-import { colors } from '../../utils/styles'
+import { colors, fonts } from '../../utils/styles'
 import images from '../../utils/images'
 
 type Props = {
@@ -31,7 +35,16 @@ const Onboarding = React.forwardRef((props: Props, ref: any) => {
 		currentPageIndex,
 		onboardingScreenQuestions,
 		onScroll,
-		onSelectOption
+		onSelectOption,
+		onSelectSize,
+		onSubmit,
+		favoriteExercise,
+		favoriteExercisePlace,
+		favoriteColorPalette,
+		bodyType,
+		bottom,
+		top,
+		bra
 	} = props
 
 	return (
@@ -64,10 +77,14 @@ const Onboarding = React.forwardRef((props: Props, ref: any) => {
 						)
 					})
 				}
+				<OnboardingSizeSurvey
+					onSelectSize={onSelectSize}
+					onPressSubmit={onSubmit}
+				/>
 			</ScrollView>
 			<View style={styles.pageIndicatorContainer}>
 				<PageIndicator
-					pageCount={onboardingScreenQuestions.length}
+					pageCount={onboardingScreenQuestions.length + 1}
 					selectedPageIndex={currentPageIndex}
 				/>
 			</View>
@@ -96,8 +113,8 @@ const styles = StyleSheet.create({
     height: 30
   },
   headerLabel: {
-		fontSize: 12,
-		fontFamily: 'Helvetica',
+		fontSize: 14,
+		fontFamily: fonts.regular,
 		color: colors.black,
 		opacity: 0.7
   },

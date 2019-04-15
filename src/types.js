@@ -10,12 +10,12 @@ export type OnboardingSurveyResultsType = {
 	favoriteColorPalette: ?ColorPaletteType,
 	bodyType: ?BodyTypeType,
 	sizes: ?{
-		bottom: ClothesSize,
-		top: ClothesSize,
-		bra: ClothesSize
+		bottom: ?ClothesSize,
+		top: ?ClothesSize,
+		bra: ?ClothesSize
 	},
-	zipCode: string,
-	birthDate: ?BirthDate
+	// zipCode: string,
+	// birthDate: ?BirthDate
 }
 
 export type ExerciseType = 'yoga' | 'run' | 'gym' | 'cycle'

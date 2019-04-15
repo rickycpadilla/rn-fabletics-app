@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import * as reduxActions from '../../redux/actions'
-import type { UserStateType, ProductPreviewType } from '../../types'
+import type { UserStateType, UserProfileType, ProductPreviewType } from '../../types'
 import { screenSize } from '../../utils/device'
 import { colors } from '../../utils/styles'
 import images from '../../utils/images'
@@ -14,6 +14,7 @@ import ProductDetail, { initialImageHeight } from './ProductDetail'
 
 type Props = {
 	userState: UserStateType,
+	user: UserProfileType,
 	product: ProductPreviewType
 }
 
@@ -78,13 +79,14 @@ class ProductDetailScreen extends Component < Props, State > {
 	}
 	
 	_getUserSizeForProduct() {
-		const { userState, product } = this.props
+		const { user, product } = this.props
 		let userSize = null
 		if (
-			userState.onboardingSurveyResults &&
-			userState.onboardingSurveyResults.sizes
+			user.onboardingSurveyResults &&
+			user.onboardingSurveyResults.sizes &&
+			product
 		) {
-			const { sizes } = userState.onboardingSurveyResults
+			const { sizes } = user.onboardingSurveyResults
 			switch (product.type) {
 				case 'top':
 					userSize = sizes.top

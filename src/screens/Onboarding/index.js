@@ -5,35 +5,54 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import * as reduxActions from '../../redux/actions'
-import type { UserStateType, OnboardingOptionType } from '../../types'
+import type {
+	UserStateType,
+	UserProfileType,
+	OnboardingOptionType,
+	ExerciseType,
+	ExercisePlaceType,
+	ColorPaletteType,
+	BodyTypeType,
+	ClothesSize
+} from '../../types'
 import { screenSize } from '../../utils/device'
 import { onboardingScreenQuestions } from './constants'
 
 import Onboarding from './Onboarding'
 
 type Props = {
-	userState: UserStateType
+	userState: UserStateType,
+	actions: any
 }
 
 type State = {
-	currentPageIndex: number
+	currentPageIndex: number,
+	favoriteExercise: ?ExerciseType,
+	favoriteExercisePlace: ?ExercisePlaceType,
+	favoriteColorPalette: ?ColorPaletteType,
+	bodyType: ?BodyTypeType,
+	bottom: ?ClothesSize,
+	top: ?ClothesSize,
+	bra: ?ClothesSize
 }
 
+// TODO: Make DRY
 class OnboardingScreen extends Component < Props, State > {
 
 	// STATIC PUBLIC PROPS
 	static screenName = 'ONBOARDING_SCREEN'
 
-	// NAVIGATOR STYLE
-
 	// REACT COMPONENT PROPS AND METHODS
 
 	state = {
-		currentPageIndex: 0
-	}
-
-	componentWillReceiveProps(){
-
+		currentPageIndex: 0,
+		favoriteExercise: null,
+		favoriteExercisePlace: null,
+		favoriteColorPalette: null,
+		bodyType: null,
+		bottom: null,
+		top: null,
+		bra: null
 	}
 
 	// PRIVATE METHODS
@@ -52,8 +71,74 @@ class OnboardingScreen extends Component < Props, State > {
 			x: nextPageIndex * screenSize.width,
 			y: 0, animated: true
 		})
+		switch (option.type) {
+			case 'yoga':
+			case 'run':
+			case 'gym':
+			case 'cycle':
+				this.setState({ favoriteExercise: option.type })
+				break
+			case 'yoga_studio':
+			case 'outdoors':
+			case 'gym':
+			case 'home':
+				this.setState({ favoriteExercisePlace: option.type })
+				break
+			case 'grayscale':
+			case 'warm':
+			case 'cool':
+			case 'pattern':
+				this.setState({ favoriteColorPalette: option.type })
+				break
+			case 'petite':
+			case 'lean':
+			case 'curvy':
+			case 'athletic':
+				this.setState({ bodyType: option.type })
+				break
+			default: ()=>{}
+		}
 	}
 
+	_onSelectSize = (type: string, size: ClothesSize) => {
+		switch (type) {
+			case 'top':
+				this.setState({ top: size })
+			case 'bottom':
+				this.setState({ bottom: size })
+			case 'bra':
+				this.setState({ bra: size })
+			default: () => {}
+		}
+	}
+
+	_onSubmit = () => {
+		const {
+			favoriteExercise,
+			favoriteExercisePlace,
+			favoriteColorPalette,
+			bodyType,
+			bottom,
+			top,
+			bra
+		} = this.state
+		const { updateUserProfile } = this.props.actions
+		const userProfile: UserProfileType = {
+			onboardingSurveyResults: {
+				favoriteExercise,
+				favoriteExercisePlace,
+				favoriteColorPalette,
+				bodyType,
+				sizes: {
+					bottom,
+					top,
+					bra
+				},
+			}
+		}
+		updateUserProfile(userProfile)
+	}
+ 
 	// RENDER UI
 
 	render() {
@@ -64,6 +149,15 @@ class OnboardingScreen extends Component < Props, State > {
 				onboardingScreenQuestions={onboardingScreenQuestions}
 				onScroll={this._onScroll}
 				onSelectOption={this._onSelectOption}
+				onSelectSize={this._onSelectSize}
+				onSubmit={this._onSubmit}
+				favoriteExercise={this.state.favoriteExercise}
+				favoriteExercisePlace={this.state.favoriteExercisePlace}
+				favoriteColorPalette={this.state.favoriteColorPalette}
+				bodyType={this.state.bodyType}
+				bottom={this.state.bottom}
+				top={this.state.top}
+				bra={this.state.bra}
 			/>
 		)
 	}

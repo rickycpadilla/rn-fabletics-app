@@ -16,18 +16,12 @@ export default {
 
   getUser: async () => {
     try {
-      const user: UserProfileType = AsyncStorage.getItem('@USER')
+      const userJson =  await AsyncStorage.getItem('@USER')
+      const user: UserProfileType = JSON.parse(userJson)
       return user
     } catch (e) {
       return null
     }
   }
-
-  // getUser: (callback: (user: UserProfileType) => any) => {
-  //   AsyncStorage.getItem('@USER', (err, result) => {
-  //     const user: UserProfileType = JSON.parse(result);
-  //     callback(user);
-  //   })
-  // }
 
 }
