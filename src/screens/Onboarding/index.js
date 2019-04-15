@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
+import { Navigation } from 'react-native-navigation'
 import { connect } from 'react-redux'
 
 import * as reduxActions from '../../redux/actions'
@@ -16,6 +17,7 @@ import type {
 	ClothesSize
 } from '../../types'
 import { screenSize } from '../../utils/device'
+import { setupTabBar } from '../../'
 import { onboardingScreenQuestions } from './constants'
 
 import Onboarding from './Onboarding'
@@ -137,6 +139,7 @@ class OnboardingScreen extends Component < Props, State > {
 			}
 		}
 		updateUserProfile(userProfile)
+		Navigation.setRoot({ root: setupTabBar(userProfile) })
 	}
  
 	// RENDER UI

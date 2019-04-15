@@ -19,7 +19,7 @@ const store = configureStore()
 
 registerScreens(store, Provider)
 
-const setupTabBar = (user: UserProfileType) => {
+export const setupTabBar = (user: UserProfileType) => {
   return {
     bottomTabs: {
       children: [
