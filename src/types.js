@@ -9,7 +9,7 @@ export type OnboardingSurveyResultsType = {
 	favoriteExercisePlace: ?ExercisePlaceType,
 	favoriteColorPalette: ?ColorPaletteType,
 	bodyType: ?BodyTypeType,
-	sizes: {
+	sizes: ?{
 		bottom: ClothesSize,
 		top: ClothesSize,
 		bra: ClothesSize
@@ -50,6 +50,7 @@ export type FeaturedSectionType = {
 
 export type ProductPreviewType = {
 	id: string,
+	type: 'bottom' | 'top' | 'bra' | 'outfit' | 'other',
 	name: string,
 	previewImageUrl: string,
 	largeImageUrl: string,

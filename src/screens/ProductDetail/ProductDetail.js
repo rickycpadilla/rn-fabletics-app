@@ -12,17 +12,19 @@ import {
 } from 'react-native'
 
 import { ColorSelector } from '../../components'
-import type { ProductPreviewType } from '../../types'
+import type { ProductPreviewType, ClothesSize } from '../../types'
 import { screenSize } from '../../utils/device'
 import { colors, fonts } from '../../utils/styles'
 import images from '../../utils/images'
+import { getSizeString } from '../../utils/helpers'
 
 export const initialImageHeight = screenSize.height * .55
 
 type Props = {
   heroImageHeight: number,
   onScroll: () => void,
-  product: ?ProductPreviewType
+  product: ?ProductPreviewType,
+  userSize: ?ClothesSize
 }
 
 export default (props: Props,) => {
@@ -30,10 +32,13 @@ export default (props: Props,) => {
 	const {
     heroImageHeight,
     onScroll,
-    product
+    product,
+    userSize
   } = props
   
   if (product == null) return null
+  const size = userSize ? getSizeString(userSize) : 'Medium'
+  const sizeString = `Your Size: ${size}`
 
 	return (
 		<View style={styles.container}>
@@ -41,7 +46,6 @@ export default (props: Props,) => {
         source={{uri: product.largeImageUrl}}
         style={[styles.heroImage, { height: heroImageHeight }]}
       />
-
       <ScrollView
         scrollEventThrottle={1}
         onScroll={onScroll}
@@ -52,7 +56,9 @@ export default (props: Props,) => {
           <Text style={styles.productName}>{product.name}</Text>
           <View style={styles.priceRow}>
             <Text style={styles.sale}>{product.saleDescription}</Text>
-            <Text style={styles.sale}>{`$${product.salePrice || product.originalPrice}`}</Text>
+            <Text style={styles.sale}>
+              {`$${product.salePrice || product.originalPrice}`}
+            </Text>
           </View>
           <Text style={styles.label}>{'Colors'}</Text>
           <ColorSelector
@@ -60,15 +66,16 @@ export default (props: Props,) => {
             size={'large'}
           />
           <View style={{ height: 14 }}/>
+          <Text style={styles.label}>{sizeString}</Text>
+          <View style={{ height: 14 }}/>
           <Text style={styles.label}>{'Product Description'}</Text>
           <Text style={styles.detail}>{product.productDescription}</Text>
         </View>
       </ScrollView>
-
       <View style={styles.addToCartContainer}>
       <TouchableOpacity onPress={() => {}}>
         <View style={styles.cartButton}>
-          <Text style={{ color: 'white', fontFamily: fonts.semiBold, fontSize: 20}}>
+          <Text style={styles.buttonText}>
             {'Add Item to Cart'}
           </Text>
         </View>
@@ -144,5 +151,10 @@ const styles = StyleSheet.create({
     color: colors.black,
     fontSize: 14,
     opacity: 0.8
+  },
+  buttonText: {
+    color: 'white',
+    fontFamily: fonts.semiBold,
+    fontSize: 20
   }
 })

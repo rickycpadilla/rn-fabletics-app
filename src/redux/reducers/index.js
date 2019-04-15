@@ -2,10 +2,10 @@
 
 import { combineReducers } from 'redux'
 
-import userReducer from './userReducer'
+import userState from './userReducer'
 
 const rootReducer = combineReducers({
-    userReducer
+    userState
 })
 
 export default rootReducer

@@ -60,9 +60,6 @@ class ProductDetailScreen extends Component < Props, State > {
 		heroImageHeight: initialImageHeight
 	}
 
-	componentDidMount() {
-	}
-
 	componentWillReceiveProps(){
 
 	}
@@ -78,18 +75,44 @@ class ProductDetailScreen extends Component < Props, State > {
         heroImageHeight
       });
     };
-  }
+	}
+	
+	_getUserSizeForProduct() {
+		const { userState, product } = this.props
+		let userSize = null
+		if (
+			userState.onboardingSurveyResults &&
+			userState.onboardingSurveyResults.sizes
+		) {
+			const { sizes } = userState.onboardingSurveyResults
+			switch (product.type) {
+				case 'top':
+					userSize = sizes.top
+					break
+				case 'bottom':
+					userSize = sizes.bottom
+					break
+				case 'bra':
+					userSize = sizes.bra
+					break
+				default: userSize = null
+			}
+		}
+		return userSize
+	}
 
 	// RENDER UI
 
 	render() {
 		const { heroImageHeight } = this.state
-		const { product } = this.props
+		const { userState, product } = this.props
+		const userSize = this._getUserSizeForProduct()
 		return (
 			<ProductDetail
         heroImageHeight={heroImageHeight}
         onScroll={this._onScroll}
 				product={product}
+				userSize={userSize}
 			/>
 		)
 	}
