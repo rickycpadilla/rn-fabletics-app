@@ -11,24 +11,31 @@ import {
 	SafeAreaView
 } from 'react-native'
 
-import type { OnboardingScreenType, OnboardingOptionType } from '../../types'
-import { OnboardingOptionsSelect, PageIndicator, Button } from '../../components'
+import {
+  OnboardingOptionsSelect,
+  PageIndicator,
+  Button,
+  FeaturedSection
+} from '../../components'
+import type { FeaturedSectionType } from '../../types'
 import { screenSize } from '../../utils/device'
-import { colors } from '../../utils/styles'
+import { colors, fonts } from '../../utils/styles'
 import images from '../../utils/images'
 
 export const initialImageHeight = screenSize.width * 0.65
 
 type Props = {
   heroImageHeight: number,
-  onScroll: () => void
+  onScroll: () => void,
+  featuredSections: Array<FeaturedSectionType>
 }
 
 export default (props: Props,) => {
 
 	const {
     heroImageHeight,
-    onScroll
+    onScroll,
+    featuredSections
 	} = props
 
 	return (
@@ -37,7 +44,6 @@ export default (props: Props,) => {
         source={{uri: 'http://fabletics-us-cdn.justfab.com/media/images/brand/ftv/5217/masthead-1.jpg'}}
         style={[styles.heroImage, { height: heroImageHeight }]}
       />
-      {/* <View style={{flex: 1}}/> */}
       <ScrollView
         scrollEventThrottle={1}
         onScroll={onScroll}
@@ -48,7 +54,17 @@ export default (props: Props,) => {
           <Button title={'GET STARTED'} onPress={() => {}} />
         </View>
         <View style={{ height: 2000, backgroundColor: 'white' }}>
-          
+          <Text style={styles.vipDeals}>{'VIP Deals'}</Text>
+          {
+            featuredSections.map((section, i) => {
+              return (
+                <FeaturedSection
+                  key={section.id}
+                  section={section}
+                />
+              )
+            })
+          }
         </View>
       </ScrollView>
     </View>
@@ -78,5 +94,12 @@ const styles = StyleSheet.create({
   heroImageOverlayContainer: {
     height: initialImageHeight,
     backgroundColor: 'transparent'
+  },
+  vipDeals: {
+    fontFamily: fonts.bold,
+    fontSize: 32,
+    color: colors.black,
+    marginLeft: 14,
+    marginTop: 14
   }
 })

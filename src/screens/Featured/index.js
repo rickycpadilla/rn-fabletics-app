@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import * as reduxActions from '../../redux/actions'
 import type { UserStateType, OnboardingOptionType } from '../../types'
 import { screenSize } from '../../utils/device'
+import { mockFeaturedSections } from '../../utils/mockData'
 
 import Featured, { initialImageHeight } from './Featured'
 
@@ -15,7 +16,8 @@ type Props = {
 }
 
 type State = {
-  heroImageHeight: number
+  heroImageHeight: number,
+
 }
 
 class FeaturedScreen extends Component < Props, State > {
@@ -64,6 +66,7 @@ class FeaturedScreen extends Component < Props, State > {
 			<Featured
         heroImageHeight={heroImageHeight}
         onScroll={this._onScroll}
+        featuredSections={mockFeaturedSections}
 			/>
 		)
 	}

@@ -5,7 +5,8 @@ export const colors = {
   black: '#333233',
   red: '#E11F3E',
   purple: '#2A1357',
-  lightPurple: '#A38BC9'
+  lightPurple: '#A38BC9',
+  teal: '#2D9AAC'
 }
 
 export const fonts = {
