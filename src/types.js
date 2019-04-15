@@ -52,9 +52,11 @@ export type ProductPreviewType = {
 	id: string,
 	name: string,
 	previewImageUrl: string,
+	largeImageUrl: string,
 	originalPrice: number,
 	salePrice: ?number,
 	saleDescription: ?string,
+	productDescription: string,
 	stars: 1 | 2 | 3 | 4 | 5,
 	colors: Array<string>// Hex values
 }

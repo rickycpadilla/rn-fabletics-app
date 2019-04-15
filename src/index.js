@@ -100,9 +100,19 @@ const tabBar = {
   }
 }
 
+const productTestRoot = {
+  
+  component: {
+    name: 'PRODUCT_DETAIL_SCREEN'
+  }
+  
+}
+
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
-    root: tabBar//{
+    root: productTestRoot
+    // root: tabBar
+    //{
     //   component: {
     //     name: 'FEATURED_SCREEN'
     //   }

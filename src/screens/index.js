@@ -7,6 +7,7 @@ import SplashScreen from './Splash'
 import FeaturedScreen from './Featured'
 import StoreLocatorScreen from './StoreLocator'
 import ShopScreen from './Shop'
+import ProductDetailScreen from './ProductDetail'
 
 const screens = [
 	SplashScreen,
@@ -16,7 +17,8 @@ const screens = [
 const reduxScreens = [
 	OnboardingScreen,
 	FeaturedScreen,
-	StoreLocatorScreen
+	StoreLocatorScreen,
+	ProductDetailScreen
 ]
 
 export function registerScreens(store: any, provider: any) {
