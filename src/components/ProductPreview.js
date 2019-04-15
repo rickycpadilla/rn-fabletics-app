@@ -10,6 +10,7 @@ import {
 
 import type { ProductPreviewType } from '../types'
 import { colors, fonts } from '../utils/styles'
+import { ColorSelector } from './'
 
 type Props = {
   productPreview: ProductPreviewType
@@ -28,7 +29,10 @@ export const ProductPreview = (props: Props) => {
         source={{uri: productPreview.previewImageUrl}}
         style={styles.previewPhoto}
       />
-      {/* Color row here */}
+      <ColorSelector
+        colors={productPreview.colors}
+        size={'small'}
+      />
       {
         productPreview.saleDescription ? (
           <Text style={styles.saleDescription}>
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
     width: 160,
   },
   previewPhoto: {
-    height: 200,
+    height: 180,
     // width: 160,
     resizeMode: 'cover'
   },

@@ -11,51 +11,48 @@ import {
 import { colors, fonts } from '../utils/styles'
 
 type Props = {
-  colors: Array<string>
+  colors: Array<string>,
+  size: 'small' | 'large'
 }
 
 export const ColorSelector = (props: Props) => {
 
   const {
-    colors
+    colors,
+    size
   } = props
+
+  const circleSize = size === 'large' ? 32 : 16
+  const circlePadding = size === 'large' ? 4 : 2
+  const circleStyle = {
+    height: circleSize,
+    width: circleSize,
+    borderRadius: circleSize / 2
+  }
 
   return (
     <FlatList
+        style={styles.container}
         horizontal={true}
         data={colors}
         keyExtractor={(item, index) => item}
         renderItem={({item}) => {
             return (
-              <TouchableOpacity key={item}>
-                <View style={[styles.colorCircle, { backgroundColor: item }]}/>
+              <TouchableOpacity key={item} style={{ padding: circlePadding}}>
+                <View style={[circleStyle, { backgroundColor: item }]}/>
               </TouchableOpacity>
             )
           }
         }
       />
   )
-
-  // return (
-  //   <TouchableOpacity
-  //     style={styles.container}
-  //     onPress={onPress}
-  //   >
-  //     <View style={styles.button}>
-  //       <Text style={styles.text}>{title}</Text>
-  //     </View>
-  //   </TouchableOpacity>
-  // )
 }
 
 const styles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
-    margin: 14
-  },
-  colorCircle: {
-    height: 32,
-    width: 32,
-    borderRadius: 16
+    flexDirection: 'row',
+    paddingVertical: 4
+    // margin: 14
   }
 })

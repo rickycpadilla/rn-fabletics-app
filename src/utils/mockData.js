@@ -3,19 +3,6 @@
 import type { FeaturedSectionType, ProductPreviewType } from '../types'
 
 export const mockTopPreviews: Array<ProductPreviewType> = [
-
-  {
-    id: 'T00001',
-    name: 'Cashel Oversized Hoodie',
-    previewImageUrl: 'https://fabletics-us-cdn.justfab.com/media/images/products/LS1828416-0001/LS1828416-0001-1_327x491.jpg',
-    largeImageUrl: 'https://fabletics-us-cdn.justfab.com/media/images/products/LS1828416-0001/LS1828416-0001-1_998x1498.jpg',
-    originalPrice: 44.95,
-    salePrice: 22.47,
-    saleDescription: 'NEW VIP PRICE',
-    productDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    stars: 5,
-    colors: ['#000000']
-  },
   {
     id: 'T00002',
     name: 'Alecia Performance Pullover',
@@ -26,31 +13,7 @@ export const mockTopPreviews: Array<ProductPreviewType> = [
     saleDescription: 'NEW VIP PRICE',
     productDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     stars: 4,
-    colors: ['#000000']
-  },
-  {
-    id: 'T00003',
-    name: 'Kathie Seamless Ruched L/S Top',
-    previewImageUrl: 'http://fabletics-us-cdn.justfab.com/media/images/products/LS1828152-0001/LS1828152-0001-1_327x491.jpg',
-    largeImageUrl: 'http://fabletics-us-cdn.justfab.com/media/images/products/LS1828152-0001/LS1828152-0001-1_998x1498.jpg',
-    originalPrice: 44.95,
-    salePrice: 22.47,
-    saleDescription: 'NEW VIP PRICE',
-    productDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    stars: 5,
-    colors: ['#000000']
-  },
-  {
-    id: 'T00004',
-    name: 'Sedona Fleece Vest',
-    previewImageUrl: 'https://fabletics-us-cdn.justfab.com/media/images/products/JT1828720-1492/JT1828720-1492-1_327x491.jpg',
-    largeImageUrl: 'https://fabletics-us-cdn.justfab.com/media/images/products/JT1828720-1492/JT1828720-1492-1_998x1498.jpg',
-    originalPrice: 54.95,
-    salePrice: 27.47,
-    saleDescription: 'NEW VIP PRICE',
-    productDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    stars: 5,
-    colors: ['#000000']
+    colors: ['#3F3A3E', '#D89E9F']
   },
   {
     id: 'T00005',
@@ -62,7 +25,31 @@ export const mockTopPreviews: Array<ProductPreviewType> = [
     saleDescription: 'NEW VIP PRICE',
     productDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     stars: 4,
-    colors: ['#000000']
+    colors: ['#303866', '#000000', '#DE272D', '#525B58', '#5E2747']
+  },
+  {
+    id: 'T00003',
+    name: 'Kathie Seamless Ruched L/S Top',
+    previewImageUrl: 'http://fabletics-us-cdn.justfab.com/media/images/products/LS1828152-0001/LS1828152-0001-1_327x491.jpg',
+    largeImageUrl: 'http://fabletics-us-cdn.justfab.com/media/images/products/LS1828152-0001/LS1828152-0001-1_998x1498.jpg',
+    originalPrice: 44.95,
+    salePrice: 22.47,
+    saleDescription: 'NEW VIP PRICE',
+    productDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    stars: 5,
+    colors: ['#000000', '#6B304B']
+  },
+  {
+    id: 'T00004',
+    name: 'Sedona Fleece Vest',
+    previewImageUrl: 'https://fabletics-us-cdn.justfab.com/media/images/products/JT1828720-1492/JT1828720-1492-1_327x491.jpg',
+    largeImageUrl: 'https://fabletics-us-cdn.justfab.com/media/images/products/JT1828720-1492/JT1828720-1492-1_998x1498.jpg',
+    originalPrice: 54.95,
+    salePrice: 27.47,
+    saleDescription: 'NEW VIP PRICE',
+    productDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    stars: 5,
+    colors: ['#F5F1EB']
   },
   {
     id: 'T00006',
@@ -74,8 +61,20 @@ export const mockTopPreviews: Array<ProductPreviewType> = [
     saleDescription: 'NEW VIP PRICE',
     productDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
     stars: 4,
-    colors: ['#000000']
+    colors: ['#EDD3CC', '#000000', '#3E205A']
   },
+  {
+    id: 'T00001',
+    name: 'Cashel Oversized Hoodie',
+    previewImageUrl: 'https://fabletics-us-cdn.justfab.com/media/images/products/LS1828416-0001/LS1828416-0001-1_327x491.jpg',
+    largeImageUrl: 'https://fabletics-us-cdn.justfab.com/media/images/products/LS1828416-0001/LS1828416-0001-1_998x1498.jpg',
+    originalPrice: 44.95,
+    salePrice: 22.47,
+    saleDescription: 'NEW VIP PRICE',
+    productDescription: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+    stars: 5,
+    colors: ['#000000']
+  }
 ]
 
 const mockBottomPreviews: Array<ProductPreviewType> = [

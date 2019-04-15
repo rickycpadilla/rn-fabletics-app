@@ -7,7 +7,8 @@ import { connect } from 'react-redux'
 import * as reduxActions from '../../redux/actions'
 import type { UserStateType, ProductPreviewType } from '../../types'
 import { screenSize } from '../../utils/device'
-import { mockTopPreviews } from '../../utils/mockData'
+import { colors } from '../../utils/styles'
+import images from '../../utils/images'
 
 import ProductDetail, { initialImageHeight } from './ProductDetail'
 
@@ -31,8 +32,25 @@ class ProductDetailScreen extends Component < Props, State > {
     return {
       statusBar: {
         visible: true,
-        style: 'light'
-      }
+        style: 'dark'
+      },
+      topBar: {
+				drawBehind: true,
+				backButton:{ color: colors.black, title: '' },
+        background: {
+					color: 'transparent',
+					translucent: true,
+					blur: false
+				},
+				rightButtons: [{
+          id: 'cart',
+          icon: images.shopping_cart,
+          color: colors.black
+        }]
+			},
+			bottomTabs: {
+				visible: false
+			}
     }
   }
 
@@ -40,6 +58,9 @@ class ProductDetailScreen extends Component < Props, State > {
 
 	state = {
 		heroImageHeight: initialImageHeight
+	}
+
+	componentDidMount() {
 	}
 
 	componentWillReceiveProps(){
@@ -68,8 +89,7 @@ class ProductDetailScreen extends Component < Props, State > {
 			<ProductDetail
         heroImageHeight={heroImageHeight}
         onScroll={this._onScroll}
-				// product={product}
-				product={mockTopPreviews[1]}// TEMPORARY
+				product={product}
 			/>
 		)
 	}

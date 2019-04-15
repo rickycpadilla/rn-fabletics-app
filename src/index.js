@@ -8,6 +8,7 @@ import { registerScreens } from './screens'
 import FeaturedScreen from './screens/Featured'
 import StoreLocatorScreen from './screens/StoreLocator'
 import ShopScreen from './screens/Shop'
+import ProductDetailScreen from './screens/ProductDetail'
 import images from './utils/images'
 
 const store = configureStore()
@@ -17,31 +18,26 @@ registerScreens(store, Provider)
 const tabBar = {
   bottomTabs: {
     children: [
-    //   {
-    //   stack: {
-    //     children: [{
-    //       component: {
-    //         name: 'example.FirstTabScreen',
-    //         passProps: {
-    //           text: 'This is tab 1'
-    //         }
-    //       }
-    //     }],
-    //     options: {
-    //       bottomTab: {
-    //         text: 'Tab 1',
-    //         icon: require('../images/one.png'),
-    //         testID: 'FIRST_TAB_BAR_BUTTON'
-    //       }
-    //     }
-    //   }
-    // },
     {
-      component: {
-        name: FeaturedScreen.screenName,
-        passProps: {
-          text: 'This is tab 1'
-        },
+      stack: {
+        children: [
+          {
+            component: {
+              name: ProductDetailScreen.screenName,
+              passProps: {
+                text: 'This is tab 1'
+              }
+            }
+          },
+          {
+            component: {
+              name: FeaturedScreen.screenName,
+              passProps: {
+                text: 'This is tab 1'
+              }
+            }
+          }
+        ],
         options: {
           bottomTab: {
             text: 'VIP Deals',
@@ -83,7 +79,7 @@ const tabBar = {
     },
     {
       component: {
-        name: 'FEATURED_SCREEN',
+        name: ShopScreen.screenName,
         passProps: {
           text: 'This is tab 4'
         },
@@ -110,12 +106,6 @@ const productTestRoot = {
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
-    root: productTestRoot
-    // root: tabBar
-    //{
-    //   component: {
-    //     name: 'FEATURED_SCREEN'
-    //   }
-    // }
+    root: tabBar
   });
 });

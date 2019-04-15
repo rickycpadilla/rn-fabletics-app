@@ -17,12 +17,12 @@ import { screenSize } from '../../utils/device'
 import { colors, fonts } from '../../utils/styles'
 import images from '../../utils/images'
 
-export const initialImageHeight = screenSize.height * .65
+export const initialImageHeight = screenSize.height * .55
 
 type Props = {
   heroImageHeight: number,
   onScroll: () => void,
-  product: ProductPreviewType
+  product: ?ProductPreviewType
 }
 
 export default (props: Props,) => {
@@ -31,7 +31,9 @@ export default (props: Props,) => {
     heroImageHeight,
     onScroll,
     product
-	} = props
+  } = props
+  
+  if (product == null) return null
 
 	return (
 		<View style={styles.container}>
@@ -55,6 +57,7 @@ export default (props: Props,) => {
           <Text style={styles.label}>{'Colors'}</Text>
           <ColorSelector
             colors={product.colors}
+            size={'large'}
           />
           <View style={{ height: 14 }}/>
           <Text style={styles.label}>{'Product Description'}</Text>

@@ -9,18 +9,20 @@ import {
   TouchableOpacity
 } from 'react-native'
 
-import type { FeaturedSectionType } from '../types'
+import type { FeaturedSectionType, ProductPreviewType } from '../types'
 import { colors, fonts } from '../utils/styles'
 import { ProductPreview } from './'
 
 type Props = {
-  section: FeaturedSectionType
+  section: FeaturedSectionType,
+  onSelectProduct: (product: ProductPreviewType) => void
 }
 
 export const FeaturedSection = (props: Props) => {
 
   const {
-    section
+    section,
+    onSelectProduct
   } = props
 
   return (
@@ -32,7 +34,7 @@ export const FeaturedSection = (props: Props) => {
         keyExtractor={(item, index) => item.id}
         renderItem={({item}) => {
             return (
-              <TouchableOpacity key={item.id}>
+              <TouchableOpacity key={item.id} onPress={() => onSelectProduct(item)}>
                 <ProductPreview
                   productPreview={item}
                 />

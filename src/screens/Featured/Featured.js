@@ -17,17 +17,18 @@ import {
   Button,
   FeaturedSection
 } from '../../components'
-import type { FeaturedSectionType } from '../../types'
+import type { FeaturedSectionType, ProductPreviewType } from '../../types'
 import { screenSize } from '../../utils/device'
 import { colors, fonts } from '../../utils/styles'
 import images from '../../utils/images'
 
-export const initialImageHeight = screenSize.width * 0.65
+export const initialImageHeight = screenSize.width * 0.55
 
 type Props = {
   heroImageHeight: number,
   onScroll: () => void,
-  featuredSections: Array<FeaturedSectionType>
+  featuredSections: Array<FeaturedSectionType>,
+  onSelectProduct: (product: ProductPreviewType) => void
 }
 
 export default (props: Props,) => {
@@ -35,7 +36,8 @@ export default (props: Props,) => {
 	const {
     heroImageHeight,
     onScroll,
-    featuredSections
+    featuredSections,
+    onSelectProduct
 	} = props
 
 	return (
@@ -61,6 +63,7 @@ export default (props: Props,) => {
                 <FeaturedSection
                   key={section.id}
                   section={section}
+                  onSelectProduct={onSelectProduct}
                 />
               )
             })
