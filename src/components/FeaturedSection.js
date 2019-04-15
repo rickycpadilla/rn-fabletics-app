@@ -41,16 +41,13 @@ export const FeaturedSection = (props: Props) => {
           }
         }
       />
-
     </View>
   )
-
 }
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
-    // backgroundColor: 'pink',
     alignSelf: 'stretch'
   },
   flatList: {
@@ -61,9 +58,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: colors.black,
     marginLeft: 12,
-    marginVertical: 12
-  },
-  cell: {
-
+    marginTop: 6
   }
 })

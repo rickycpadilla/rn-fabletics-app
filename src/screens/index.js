@@ -5,17 +5,28 @@ import { Navigation, ScreenVisibilityListener } from 'react-native-navigation'
 import OnboardingScreen from './Onboarding'
 import SplashScreen from './Splash'
 import FeaturedScreen from './Featured'
+import StoreLocatorScreen from './StoreLocator'
+import ShopScreen from './Shop'
 
 const screens = [
-    OnboardingScreen,
-    FeaturedScreen
+	SplashScreen,
+	ShopScreen
+]
+
+const reduxScreens = [
+	OnboardingScreen,
+	FeaturedScreen,
+	StoreLocatorScreen
 ]
 
 export function registerScreens(store: any, provider: any) {
-    // Register screens without Redux wrapper
-    Navigation.registerComponent(SplashScreen.screenName, () => SplashScreen)
-    // Register screens with Redux wrapper
-    screens.map( screen =>
-        Navigation.registerComponentWithRedux(screen.screenName, () => screen, provider, store)
-    )
+	// Register screens without Redux wrapper
+	screens.map( screen => 
+		Navigation.registerComponent(screen.screenName, () => screen)
+	)
+	
+	// Register screens with Redux wrapper
+	reduxScreens.map( screen =>
+		Navigation.registerComponentWithRedux(screen.screenName, () => screen, provider, store)
+	)
 }

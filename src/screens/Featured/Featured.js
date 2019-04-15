@@ -53,7 +53,7 @@ export default (props: Props,) => {
           <View style={{ flex: 1 }}/>
           <Button title={'GET STARTED'} onPress={() => {}} />
         </View>
-        <View style={{ height: 2000, backgroundColor: 'white' }}>
+        <View style={{ backgroundColor: 'white' }}>
           <Text style={styles.vipDeals}>{'VIP Deals'}</Text>
           {
             featuredSections.map((section, i) => {
