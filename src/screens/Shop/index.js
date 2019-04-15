@@ -9,7 +9,7 @@ type Props = {
 
 export default class ShopScreen extends Component < Props > {
   // STATIC PUBLIC PROPS
-  static screenName = 'SPLASH_SCREEN'
+  static screenName = 'SHOP_SCREEN'
   
   render() {
     return (

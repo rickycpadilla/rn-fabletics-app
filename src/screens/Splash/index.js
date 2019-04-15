@@ -9,6 +9,7 @@ import {
 	TouchableOpacity,
 	Text
 } from 'react-native'
+import { Navigation } from 'react-native-navigation'
 import Video from 'react-native-video'
 
 import { screenSize } from '../../utils/device'
@@ -18,7 +19,7 @@ import images from '../../utils/images'
 const splashVideo = require('../../../assets/videos/fabletics_splash.mp4')
 
 type Props = {
-
+	componentId: string
 }
 
 class SplashScreen extends Component < Props > {
@@ -26,6 +27,16 @@ class SplashScreen extends Component < Props > {
 	// STATIC PUBLIC PROPS
 	static screenName = 'SPLASH_SCREEN'
 
+	// PRIVATE METHODS
+	_onPressButton = () => {
+		Navigation.push(this.props.componentId, {
+      component: {
+        name: 'ONBOARDING_SCREEN'
+      }
+    })
+	}
+
+	// RENDER UI
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
@@ -40,7 +51,7 @@ class SplashScreen extends Component < Props > {
 					<SafeAreaView style={{ flex: 1 }}>
 						<View style={{ flex: 1 }}/>
 						<Image source={images.logoBlack} style={styles.logo}/>
-						<TouchableOpacity style={styles.button}>
+						<TouchableOpacity onPress={this._onPressButton} style={styles.button}>
 							<Text style={styles.buttonText}>{'GET STARTED'}</Text>
 						</TouchableOpacity>
 					</SafeAreaView>
